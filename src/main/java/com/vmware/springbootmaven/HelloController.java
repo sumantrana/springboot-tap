@@ -6,10 +6,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +16,12 @@ public class HelloController {
 
     @Value("${configfrom:Hardcoded}")
 	String configfrom;
+
+	@Value("${client:VMware}")
+	String client;
+
+	@Value("${framework:Spring}")
+	String framework;
 
 	@Value("${message:Secure Software Supply Chains Are Great!}")
 	String msgSubject;
@@ -34,6 +36,8 @@ public class HelloController {
 		Map<String, String> data = new HashMap<String, String>();
 		data.put("msg_subject", msgSubject);
         data.put("msg_body", msgBody);
+		data.put("framework", framework);
+		data.put("client", client);
 		LOG.debug("Returning {}.", data.toString());
 		return data;
 	}

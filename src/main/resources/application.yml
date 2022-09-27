@@ -1,4 +1,5 @@
 client: "VMware"
+framework: "Spring Boot with Maven"
 
 spring:
   application:
