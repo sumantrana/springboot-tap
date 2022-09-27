@@ -1,0 +1,14 @@
+debug: true
+
+spring:
+  application:
+    name: springboot-maven
+
+logging:
+  file:
+    name: "/tmp/tanzu-java-web-app.log"
+  level:
+    com: DEBUG
+
+configfrom: "YAML config (application.yml)"
+msg_body: "With A Secure Software Supply Chain, Deploying Python Code To PROD is Safe, Reliable, And Fast!"
