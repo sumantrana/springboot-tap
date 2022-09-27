@@ -1,4 +1,4 @@
-debug: true
+client: "VMware"
 
 spring:
   application:
@@ -11,4 +11,5 @@ logging:
     com: DEBUG
 
 configfrom: "YAML config (application.yml)"
+
 msg_body: "With A Secure Software Supply Chain, Deploying Python Code To PROD is Safe, Reliable, And Fast!"
