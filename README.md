@@ -17,7 +17,11 @@ tanzu apps workload create springboot-maven \
   --git-repo https://github.com/benwilcock/springboot-maven \
   --git-branch main \
   --type web \
+  --build-env BP_JVM_VERSION=17 \
   --label app.kubernetes.io/part-of=springboot-maven \
+  --label app.kubernetes.io/has-tests=true \
+  --param apps.tanzu.vmware.com/pipeline=test \
+  --param apps.tanzu.vmware.com/language=java \
   --annotation autoscaling.knative.dev/minScale=1 \
   --namespace default \
   --tail \
