@@ -1,0 +1,27 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  labels:
+    app.kubernetes.io/has-tests: "true"
+    app.kubernetes.io/part-of: springboot-maven
+    apps.tanzu.vmware.com/workload-type: web
+  name: springboot-maven
+  namespace: default
+spec:
+  build:
+    env:
+    - name: BP_JVM_VERSION
+      value: "17"
+  params:
+  - name: annotations
+    value:
+      autoscaling.knative.dev/minScale: "1"
+  - name: testing_pipeline_matching_labels
+    value:
+    - apps.tanzu.vmware.com/language: java
+      apps.tanzu.vmware.com/pipeline: test
+  source:
+    git:
+      ref:
+        branch: main
+      url: https://github.com/benwilcock/springboot-maven
