@@ -1,4 +1,5 @@
-client: "Myles"
+client: "VMware"
+
 framework: "Spring Boot with Maven"
 
 spring:
