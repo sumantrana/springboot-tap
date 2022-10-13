@@ -47,24 +47,23 @@ The homepage will then use the new name of the client in the text at the bottom 
 
 Adding a known vulnerability:
 
-Open the Pipfile, and under the `[Packages]` section add the line `ffmpeg = "==1.4"`.
+Version 2.7.4 of Spring Boot Starter Actuator includes a vulnerable version of Snake YAML (1.3.0). Add this to the `POM.xml` file.
 
-```bash
-nano Pipfile
+```xml
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 ```
 
-Now recreate the `requirements.txt` file (Grype uses this as a list of dependencies):
+Removing the vulnerability:
 
-```bash
-pipenv lock --requirements > requirements.txt
+Upgrade the Snake YAML dependency manually by adding this to the `POM.xml` file.
+
+```xml
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+			<version>1.32</version>
+		</dependency>
 ```
-
-Now run the Grype scanner on the code folder:
-
-```bash
-grype . # Run from this folder
-```
-
-Grype should spot the vulnerability and log warnings to the console.
-
-To remove the vulnerability, remove the ffmpeg dependency from the `Pipfile` and recreate the `requirements.txt` again.
