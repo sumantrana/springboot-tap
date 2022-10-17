@@ -8,7 +8,7 @@ spring:
 
 logging:
   file:
-    name: "/tmp/tanzu-java-web-app.log"
+    name: "/tmp/springboot-maven.log"
   level:
     com: DEBUG
 
