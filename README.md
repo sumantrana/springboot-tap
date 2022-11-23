@@ -22,7 +22,6 @@ tanzu apps workload create springboot-maven \
   --label apps.tanzu.vmware.com/has-tests=true \
   --param-yaml testing_pipeline_matching_labels='{"apps.tanzu.vmware.com/pipeline":"test", "apps.tanzu.vmware.com/language":"java"}' \
   --annotation autoscaling.knative.dev/minScale=1 \
-  --namespace default \
   --tail \
   --yes
 ```
