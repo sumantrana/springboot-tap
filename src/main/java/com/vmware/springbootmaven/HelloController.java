@@ -1,5 +1,6 @@
 package com.vmware.springbootmaven;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,5 +41,10 @@ public class HelloController {
 		data.put("client", client);
 		LOG.debug("Returning {}.", data.toString());
 		return data;
+	}
+
+	@GetMapping("/hello")
+	public String hello(){
+		return "Hello from Server!!";
 	}
 }
